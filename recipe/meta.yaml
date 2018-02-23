@@ -47,6 +47,7 @@ test:
     - sqlalchemy_utils.primitives
     - sqlalchemy_utils.relationships
     - sqlalchemy_utils.types
+    - sqlalchemy_utils.types.encrypted
 
 about:
   home: https://github.com/kvesteri/sqlalchemy-utils
