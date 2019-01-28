@@ -1,8 +1,8 @@
 {% set name = "SQLAlchemy-Utils" %}
-{% set version = "0.33.9" %}
+{% set version = "0.33.11" %}
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash = "d8c10eac729d9cdc22af694a1c2f144780787942df1eb70c0f0715d1fa6fcf9e" %}
+{% set hash = "3f1cb542cf0549a0de508d4919f3ad693a36230bf4cd13fdd6253549fec71182" %}
 
 package:
   name: {{ name|lower }}
