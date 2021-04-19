@@ -6,7 +6,7 @@ package:
 
 source:
   # The source url changed for  0.37.0
-  url: https://pypi.org/packages/source/S/SQLAlchemy-Utils/SQLAlchemy_Utils-{{ version }}-py2.py3-none-any.whl
+  url: https://github.com/kvesteri/sqlalchemy-utils/archive/refs/tags/{{ version }}.tar.gz
   sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 
 build:
