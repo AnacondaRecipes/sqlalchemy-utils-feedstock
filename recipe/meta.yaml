@@ -7,7 +7,7 @@ package:
 source:
   # The source url changed for  0.37.0
   url: https://github.com/kvesteri/sqlalchemy-utils/archive/refs/tags/{{ version }}.tar.gz
-  sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  sha256: f886e6d49d3397a57e6c2978b4ee8e2f1f4f8a9da8ed8cb4ebb58fa383d0dfe6
 
 build:
   number: 0
