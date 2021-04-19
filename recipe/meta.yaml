@@ -5,7 +5,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/S/SQLAlchemy-Utils/SQLAlchemy-Utils-{{ version }}.tar.gz
+  # The source url changed for  0.37.0
+  url: https://pypi.org/packages/source/S/SQLAlchemy-Utils/SQLAlchemy_Utils-{{ version }}-py2.py3-none-any.whl
   sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 
 build:
@@ -25,6 +26,7 @@ requirements:
     - anyjson >=0.3.3
     - babel >=1.3
     - arrow >=0.3.4
+    - pendulum >=2.0.5
     - intervals >=0.7.1
     - phonenumbers >=5.9.2
     - passlib >=1.6,<2.0
