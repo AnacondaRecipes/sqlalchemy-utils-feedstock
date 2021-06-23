@@ -1,4 +1,4 @@
-{% set version = "0.37.1" %}
+{% set version = "0.37.7" %}
 
 package:
   name: sqlalchemy-utils
@@ -7,7 +7,7 @@ package:
 source:
   # The source url changed for  0.37.0
   url: https://github.com/kvesteri/sqlalchemy-utils/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 1e379d8a3f2e92d9d4f5ec287e73a71c5fcc45ee3948a27dd5d141afb18cae0a
+  sha256: d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed
 
 build:
   number: 0
