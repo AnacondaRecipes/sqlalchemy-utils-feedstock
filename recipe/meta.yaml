@@ -18,6 +18,8 @@ requirements:
   host:
     - python
     - pip
+    - wheel
+    - setuptools
   run:
     - python
     - six
@@ -42,6 +44,10 @@ test:
     - sqlalchemy_utils.primitives
     - sqlalchemy_utils.relationships
     - sqlalchemy_utils.types
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/kvesteri/sqlalchemy-utils
