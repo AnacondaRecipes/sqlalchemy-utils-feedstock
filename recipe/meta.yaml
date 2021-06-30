@@ -5,8 +5,8 @@ package:
   version: {{ version }}
 
 source:
-  # The source url changed for  0.37.0
-  url: https://github.com/kvesteri/sqlalchemy-utils/archive/refs/tags/{{ version }}.tar.gz
+  # The source url changed for  0.37.*
+  url: https://pypi.io/packages/source/S/SQLAlchemy-Utils/SQLAlchemy-Utils-{{ version }}.tar.gz
   sha256: d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed
 
 build:
