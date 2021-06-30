@@ -7,7 +7,7 @@ package:
 source:
   # The source url changed for  0.37.*
   url: https://pypi.io/packages/source/S/SQLAlchemy-Utils/SQLAlchemy-Utils-{{ version }}.tar.gz
-  sha256: d5558cd419c8d46bdc958064cb97f963d1ea793866414c025906ec15033512ed
+  sha256: a6aaee154f798be4e479af0ceffaa5034d35fcf6f40707c0947d21bde64e05e5
 
 build:
   number: 0
