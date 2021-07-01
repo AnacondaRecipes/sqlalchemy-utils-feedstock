@@ -1,13 +1,13 @@
-{% set version = "0.37.1" %}
+{% set version = "0.37.8" %}
 
 package:
   name: sqlalchemy-utils
   version: {{ version }}
 
 source:
-  # The source url changed for  0.37.0
-  url: https://github.com/kvesteri/sqlalchemy-utils/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 1e379d8a3f2e92d9d4f5ec287e73a71c5fcc45ee3948a27dd5d141afb18cae0a
+  # The source url changed for  0.37.*
+  url: https://pypi.io/packages/source/S/SQLAlchemy-Utils/SQLAlchemy-Utils-{{ version }}.tar.gz
+  sha256: a6aaee154f798be4e479af0ceffaa5034d35fcf6f40707c0947d21bde64e05e5
 
 build:
   number: 0
@@ -18,6 +18,8 @@ requirements:
   host:
     - python
     - pip
+    - wheel
+    - setuptools
   run:
     - python
     - six
@@ -42,6 +44,10 @@ test:
     - sqlalchemy_utils.primitives
     - sqlalchemy_utils.relationships
     - sqlalchemy_utils.types
+  requires:
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/kvesteri/sqlalchemy-utils
