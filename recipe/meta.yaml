@@ -1,4 +1,4 @@
-{% set version = "0.37.8" %}
+{% set version = "0.41.1" %}
 
 package:
   name: sqlalchemy-utils
@@ -7,12 +7,13 @@ package:
 source:
   # The source url changed for  0.37.*
   url: https://pypi.io/packages/source/S/SQLAlchemy-Utils/SQLAlchemy-Utils-{{ version }}.tar.gz
-  sha256: a6aaee154f798be4e479af0ceffaa5034d35fcf6f40707c0947d21bde64e05e5
+  sha256: a2181bff01eeb84479e38571d2c0718eb52042f9afd8c194d0d02877e84b7d74
 
 build:
   number: 0
-  noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
+  # Intervals is not available on s390x
+  skip: true  # [py<36 or s390x]
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
 
 requirements:
   host:
@@ -23,9 +24,8 @@ requirements:
   run:
     - python
     - six
-    - sqlalchemy >=1.0
+    - sqlalchemy >=1.3
     # extras
-    - anyjson >=0.3.3
     - babel >=1.3
     - arrow >=0.3.4
     - pendulum >=2.0.5
@@ -36,6 +36,8 @@ requirements:
     - python-dateutil
     - furl >=0.4.1
     - cryptography >=0.6
+    - importlib_metadata  # [py<38]
+
 
 test:
   imports:
@@ -55,6 +57,9 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   summary: Various utility functions for SQLAlchemy
+  description: |
+    SQLAlchemy-Utils provides custom data types
+    and various utility functions for SQLAlchemy.
   dev_url: https://github.com/kvesteri/sqlalchemy-utils
   doc_url: https://sqlalchemy-utils.readthedocs.io
 
