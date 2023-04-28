@@ -21,7 +21,6 @@ requirements:
     - pip
     - wheel
     - setuptools
-    - sqlalchemy
   run:
     - python
     - six
