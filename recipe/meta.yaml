@@ -1,4 +1,4 @@
-{% set version = "0.41.1" %}
+{% set version = "0.41.2" %}
 
 package:
   name: sqlalchemy-utils
@@ -7,12 +7,12 @@ package:
 source:
   # The source url changed for  0.37.*
   url: https://pypi.io/packages/source/S/SQLAlchemy-Utils/SQLAlchemy-Utils-{{ version }}.tar.gz
-  sha256: a2181bff01eeb84479e38571d2c0718eb52042f9afd8c194d0d02877e84b7d74
+  sha256: bc599c8c3b3319e53ce6c5c3c471120bd325d0071fb6f38a10e924e3d07b9990
 
 build:
   number: 0
   # Intervals is not available on s390x
-  skip: true  # [py<36 or s390x]
+  skip: true  # [py<37 or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
 
 requirements:
@@ -23,7 +23,6 @@ requirements:
     - setuptools
   run:
     - python
-    - six
     - sqlalchemy >=1.3
     # extras
     - babel >=1.3
