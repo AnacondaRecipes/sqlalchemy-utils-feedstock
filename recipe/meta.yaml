@@ -10,7 +10,7 @@ source:
   sha256: bc599c8c3b3319e53ce6c5c3c471120bd325d0071fb6f38a10e924e3d07b9990
 
 build:
-  number: 0
+  number: 1
   # Intervals is not available on s390x
   skip: true  # [py<37 or s390x]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
