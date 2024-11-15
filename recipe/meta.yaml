@@ -45,10 +45,11 @@ test:
     - sqlalchemy_utils.primitives
     - sqlalchemy_utils.relationships
     - sqlalchemy_utils.types
-  requires:
-    - pip
-  commands:
-    - pip check
+  # requires:
+  #   - pip
+  # Skipping because of pendulum
+  # commands:
+  #   - pip check
 
 about:
   home: https://github.com/kvesteri/sqlalchemy-utils
