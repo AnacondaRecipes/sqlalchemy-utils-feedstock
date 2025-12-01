@@ -1,18 +1,18 @@
 {% set version = "0.42.0" %}
+{% set name = "SQLAlchemy-Utils" %}
 
 package:
-  name: sqlalchemy-utils
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
   # The source url changed for  0.37.*
-  url: https://pypi.org/packages/source/S/SQLAlchemy-Utils/sqlalchemy_utils-0.42.0.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name|lower|replace('-', '_') }}-{{ version }}.tar.gz
   sha256: 6d1ecd3eed8b941f0faf8a531f5d5cee7cffa2598fcf8163de8c31c7a417a5e0
 
 build:
   number: 0
-  # Intervals is not available on s390x
-  skip: true  # [py<39 or s390x]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed -vvv
 
 requirements:
@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - sqlalchemy >=1.4
-    # extras
+  run_constrained:
     - babel >=1.3
     - arrow >=0.3.4
     - pendulum >=2.0.5
@@ -31,20 +31,8 @@ requirements:
     - phonenumbers >=5.9.2
     - passlib >=1.6,<2.0
     - colour >=0.0.4
-    - python-dateutil
     - furl >=0.4.1
     - cryptography >=0.6
-    - importlib_metadata  # [py<38]
-  run_constrained:
-    - arrow >=0.3.4
-    - Babel >=1.3
-    - colour >=0.0.4
-    - cryptography >=0.6
-    - intervals >=0.7.1
-    - passlib >=1.6,<2.0
-    - pendulum >=2.0.5
-    - phonenumbers >=5.9.2
-    - furl >=0.4.1
 
 test:
   imports:
@@ -53,11 +41,12 @@ test:
     - sqlalchemy_utils.primitives
     - sqlalchemy_utils.relationships
     - sqlalchemy_utils.types
-  # requires:
-  #   - pip
-  # Skipping because of pendulum
-  # commands:
-  #   - pip check
+  requires:
+    - pip
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    # Upstream tests fails due to missing dependencies (flexmock / psycopg2cffi) and connection to server.
 
 about:
   home: https://github.com/kvesteri/sqlalchemy-utils
